@@ -9,7 +9,7 @@ services:
       - .:/core
     ports:
       - 8000:8000
-    db:
+  db:
     image: mysql:latest
     container_name: mysql
     environment:
