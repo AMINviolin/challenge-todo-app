@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'todo',
         'USER': 'admin',
         'PASSWORD': 'password',
-        'HOST':'db',
+        'HOST':'mysql',
         'PORT':'3306',
     }
 }
