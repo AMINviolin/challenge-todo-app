@@ -11,7 +11,7 @@ class LoginView(FormView):
      success_url = '/'
      def form_valid(self, form):
          email = self.request.POST.get('email')
-         password = self.request.POST.get('password')
+         password = self.request.POST.get('password1')
          user = authenticate(email=email, password=password)
          if user is not None:
               login(self.request, user)
@@ -30,3 +30,14 @@ class SignUpView(CreateView):
      template_name = 'registrations/signup.html'
      form_class = CustomUserCreation
      success_url = '/accounts/login/'
+     def form(self, form):
+        form.save()
+        email = self.request.POST.get('email')
+        password = self.request.POST.get('password1')
+        user = authenticate(email=email, password=password)
+        if user is not None:
+             login(self.request, user)
+            return redirect('/accounts/singup')
+        
+     def form_invalid(self, form):
+        return super().form_invalid(form)
