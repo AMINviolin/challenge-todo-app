@@ -37,7 +37,7 @@ class SignUpView(CreateView):
         user = authenticate(email=email, password=password)
         if user is not None:
              login(self.request, user)
-            return redirect('/accounts/singup')
+             return redirect('/accounts/singup')
         
      def form_invalid(self, form):
         return super().form_invalid(form)
